@@ -68,7 +68,7 @@ module.exports = {
         plugins: []
     },
     axios: {
-        // baseURL: process.env.BASE_URL || '/'
+        baseURL: process.env.BASE_URL || '/'
     },
     srcDir: './app',
     buildDir: './.temp/.nuxt',
