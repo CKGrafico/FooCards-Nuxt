@@ -1,6 +1,6 @@
 export default function ({ $axios }) {
     $axios.onRequest(config => {
-        config.headers.Auth = 'Bearer [your token here]';
+        // config.headers.Auth = 'Bearer [your token here]';
     });
 
     $axios.onError(error => {
