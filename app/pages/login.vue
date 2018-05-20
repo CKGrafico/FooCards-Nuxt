@@ -18,7 +18,7 @@ export default class LoginPage extends Vue {
   public async onClickLogin(): Promise<void> {
     await this.login('User');
     this.$router.push({
-      path: this.localePath('wizard')
+      path: this.localePath('cards')
     });
   }
 }
