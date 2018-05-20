@@ -12,10 +12,15 @@ const CardsModule = namespace(cardsModule.CardsStore.id);
     },
     middleware: 'secured'
 })
-export default class WizardPage extends Vue {
+export default class CardsPage extends Vue {
     @CardsModule.State list;
+    @CardsModule.Action removeCard;
 
     public async fetch({ store }): Promise<void> {
         await store.dispatch(`avatars/fetch`);
+    }
+
+    public onClickRemove(card: cardsModule.Card): void {
+        this.removeCard(card);
     }
 }

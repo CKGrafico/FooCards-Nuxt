@@ -4,5 +4,5 @@ import Component from 'nuxt-class-component';
 @Component({
     middleware: 'secured'
 })
-export default class WizardPage extends Vue {
+export default class TrainingPage extends Vue {
 }
