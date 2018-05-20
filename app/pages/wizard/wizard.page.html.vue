@@ -8,6 +8,6 @@
             <choicer :items="faceParts.mouth" v-model="avatar.mouth" />
         </div>
 
-        <button @click="onClickSave">Save</button>
+        <button @click="onClickSave" :disabled="!haveCoins">Save</button>
     </section>
 </template>

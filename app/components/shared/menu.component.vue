@@ -5,6 +5,10 @@
         <nuxt-link class="nav-link" :to="localePath('login')">Login</nuxt-link>
       </li>
       <li class="menu-item nav-item" v-if="logged">
+        <span class="menu-coins">{{coins}}</span>
+      </li>
+      <li class="menu-item nav-item" v-if="logged">
+        <span class="menu-bullet">{{list.length}}</span>
         <nuxt-link class="nav-link" :to="localePath('cards')">My Cards</nuxt-link>
       </li>
       <li class="menu-item nav-item" v-if="logged">
@@ -23,13 +27,16 @@
 <script lang="ts">
 import { Vue } from 'vue-property-decorator';
 import Component, { namespace } from 'nuxt-class-component';
-import { userModule } from '~/store/modules';
+import { userModule, cardsModule } from '~/store/modules';
 
 const UserModule = namespace(userModule.UsersStore.id);
+const CardsModule = namespace(cardsModule.CardsStore.id);
 
 @Component
 export default class MenuComponent extends Vue {
   @UserModule.State logged;
+  @UserModule.State coins;
+  @CardsModule.State list;
 }
 </script>
 
