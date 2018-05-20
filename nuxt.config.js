@@ -48,7 +48,7 @@ module.exports = {
     plugins,
     modules,
     router: {
-        base: '/FooCards-Nuxt/', // Only for demo
+        base: environment !== 'development' ? '/FooCards-Nuxt/' : '/', // Only for demo
         middleware: ['settings'],
         linkActiveClass: 'is-active'
     },
