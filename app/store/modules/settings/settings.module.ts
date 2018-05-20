@@ -27,8 +27,13 @@ export class SettingsStore extends StoreModule<State> {
             return new Promise(async (resolve) => {
                 // Some ajax call if needed
                 //const settings = await this.$axios.$get('/api/config');
-                // const settings = { apiUrl: 'http://api.adorable.io/avatars' };
-                const settings = { apiUrl: '/fakeapi/myAvatars' };
+                
+                let settings = { apiUrl: '/fakeapi/myAvatars' };
+                // Bad practise, only for the demo :)
+                if (process.env.NODE_ENV !== 'development') {
+                    settings = { apiUrl: 'http://api.adorable.io/avatars' };
+                }
+
                 commit(types.SET_SETTINGS, settings);
                 resolve();
             });

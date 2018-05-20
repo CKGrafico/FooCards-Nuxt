@@ -74,7 +74,7 @@ module.exports = {
     buildDir: './.temp/.nuxt',
     css: ['./.temp/css/styles/app.css'],
     generate: {
-        dir: 'dist'
+        dir: 'docs' // because gh pages, this is a demo
     },
     serverMiddleware: [
         '~~/fakeapi/index.js'
