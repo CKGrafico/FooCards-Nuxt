@@ -1,5 +1,5 @@
 <template>
-  <section class="p-login">
+  <section>
     <button @click="onClickLogin">Login!</button>
   </section>
 </template>
