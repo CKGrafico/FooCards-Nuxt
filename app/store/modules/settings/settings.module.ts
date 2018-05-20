@@ -31,7 +31,7 @@ export class SettingsStore extends StoreModule<State> {
                 let settings = { apiUrl: '/fakeapi/myAvatars' };
                 // Bad practise, only for the demo :)
                 if (process.env.NODE_ENV !== 'development') {
-                    settings = { apiUrl: 'http://api.adorable.io/avatars' };
+                    settings = { apiUrl: 'https://api.adorable.io/avatars' };
                 }
 
                 commit(types.SET_SETTINGS, settings);
