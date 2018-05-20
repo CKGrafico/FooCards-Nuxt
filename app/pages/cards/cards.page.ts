@@ -1,18 +1,20 @@
 import { Vue } from 'vue-property-decorator';
 import Component, { namespace } from 'nuxt-class-component';
 
-import { Container } from '~/core';
+import { CardComponent } from '~/components/shared';
+import { cardsModule } from '~/store/modules';
 
-// import { AvatarComponent } from '~/components/wizard';
-// import { avatarsModule } from '~/store/modules';
-
-// const AvatarsModule = namespace(avatarsModule.AvatarsStore.id);
+const CardsModule = namespace(cardsModule.CardsStore.id);
 
 @Component({
-  components: {
-  }
+    components: {
+        CardComponent
+    },
+    middleware: 'secured'
 })
 export default class WizardPage extends Vue {
+    @CardsModule.State list;
+
     public async fetch({ store }): Promise<void> {
         await store.dispatch(`avatars/fetch`);
     }

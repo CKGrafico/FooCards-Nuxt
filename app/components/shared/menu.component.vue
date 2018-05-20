@@ -5,7 +5,10 @@
         <nuxt-link class="nav-link" :to="localePath('login')">Login</nuxt-link>
       </li>
       <li class="menu-item nav-item" v-if="logged">
-        <nuxt-link class="nav-link" :to="localePath('cards')">Cards</nuxt-link>
+        <nuxt-link class="nav-link" :to="localePath('cards')">My Cards</nuxt-link>
+      </li>
+      <li class="menu-item nav-item" v-if="logged">
+        <nuxt-link class="nav-link" :to="localePath('wizard')">Create</nuxt-link>
       </li>
       <li class="menu-item nav-item" v-if="logged">
         <nuxt-link class="nav-link" :to="localePath('training')">Training</nuxt-link>

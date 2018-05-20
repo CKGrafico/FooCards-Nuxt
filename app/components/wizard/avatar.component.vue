@@ -33,7 +33,9 @@ export default class AvatarComponent extends Vue {
     @SettingsModule.State apiUrl: string;
 
     public isLoading = false;
-    public color = this.randomizerHelper.color();
+
+    @Prop({type: String, required: true})
+    color: string;
 
     @Prop({type: String, required: true})
     eyes: string;
@@ -45,17 +47,19 @@ export default class AvatarComponent extends Vue {
     mouth: string;
 
     @Watch('eyes')
-    public onWatchEyes = () => this.reload()
+    public onChangeEyes = () => this.reload()
 
     @Watch('nose')
-    public onWatchNose = () => this.reload()
+    public onChangeNose = () => this.reload()
 
     @Watch('mouth')
-    public onWatchEMouth = () => this.reload()
+    public onChangeMouth = () => this.reload()
+
+    @Watch('color')
+    public onChangeColor = () => this.reload()
 
     public reload(): void {
         // Fake to show loading component
-        this.color = this.randomizerHelper.color();
         this.isLoading = true;
         setTimeout(() => {
             this.isLoading = false;

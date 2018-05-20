@@ -15,7 +15,8 @@ const UserModule = namespace(userModule.UsersStore.id);
 @Component({
   components: {
     LoadingComponent
-  }
+  },
+  middleware: 'secured'
 })
 export default class LoginPage extends Vue {
   @UserModule.Action logout;

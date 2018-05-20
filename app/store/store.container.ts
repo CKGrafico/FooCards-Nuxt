@@ -25,6 +25,7 @@ export function containerBuilder(): Container {
     container.bind<IStoreModule>(IStoreModuleId).to(m.avatarsModule.AvatarsStore).inSingletonScope();
     container.bind<IStoreModule>(IStoreModuleId).to(m.settingsModule.SettingsStore).inSingletonScope();
     container.bind<IStoreModule>(IStoreModuleId).to(m.userModule.UsersStore).inSingletonScope();
+    container.bind<IStoreModule>(IStoreModuleId).to(m.cardsModule.CardsStore).inSingletonScope();
 
     return container;
 }
