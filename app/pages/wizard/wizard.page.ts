@@ -34,16 +34,16 @@ export default class WizardPage extends Vue {
     public selectedColor: string = null;
     public avatar: avatarsModule.Avatar = null;
 
-    public get haveCoins(): boolean {
-        return this.coins > 0;
-    }
-
     public async fetch({ store }): Promise<void> {
         await store.dispatch(`avatars/fetch`);
     }
 
     public created(): void {
         this.init();
+    }
+
+    public get haveCoins(): boolean {
+        return this.coins > 0;
     }
 
     public onClickSave(): void {
@@ -55,11 +55,6 @@ export default class WizardPage extends Vue {
     }
 
     private init(): void {
-        this.avatar = {
-            eyes: this.faceParts.eyes[this.randomizerHelper.generate(0, this.faceParts.eyes.length - 1)],
-            nose: this.faceParts.nose[this.randomizerHelper.generate(0, this.faceParts.nose.length - 1)],
-            mouth: this.faceParts.mouth[this.randomizerHelper.generate(0, this.faceParts.mouth.length - 1)],
-            color: this.randomizerHelper.color()
-        };
+        this.avatar = this.randomizerHelper.avatar(this.faceParts);
     }
 }

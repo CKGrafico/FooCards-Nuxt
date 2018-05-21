@@ -1,7 +1,7 @@
 <template>
-    <div class="card">
+    <div class="card" :class="{'is-small': small}">
         <img class="card-image" :src="`${apiUrl}/face/${value.avatar.eyes}/${value.avatar.nose}/${value.avatar.mouth}/${value.avatar.color}`"/>
-        <p class="card-description">
+        <p class="card-description" v-if="!small">
           Proin massa massa, bibendum at aliquam sed, euismod eget enim. Sed at facilisis ipsum. Mauris sem risus, luctus sit.
         </p>
         <div class="card-hp">{{value.hp}} ❤️</div>
@@ -26,6 +26,9 @@ export default class CardComponent extends Vue {
   // v-model
   @Prop({ type: Object, required: true })
   value: cardsModule.Card;
+
+  @Prop({ type: Boolean, default: false })
+  small: boolean;
 }
 </script>
 
@@ -34,6 +37,7 @@ export default class CardComponent extends Vue {
 
 .card {
   $size: 15rem;
+  $size-small: 10rem;
 
   align-items: center;
   background-color: $color-background-bright;
@@ -67,6 +71,17 @@ export default class CardComponent extends Vue {
   &-power {
     color: $color-brand;
     font-size: $font-size-l;
+  }
+
+  &.is-small {
+    width: $size-small;
+  }
+
+  &.is-small &-image {
+    $image-size: $size-small;
+
+    height: $image-size;
+    width: $image-size;
   }
 }
 </style>

@@ -21,7 +21,7 @@
         <nuxt-link class="nav-link" :to="localePath('wizard')">Create</nuxt-link>
       </li>
       <li class="menu-item nav-item" v-if="logged">
-        <nuxt-link class="nav-link" :to="localePath('training')">Training</nuxt-link>
+        <nuxt-link class="nav-link" :to="hasEnoughCards ? localePath('training') : ''" :title="hasEnoughCards ? '' : 'You need at least 3 cards'" :class="{'is-disabled': !hasEnoughCards}">Training</nuxt-link>
       </li>
       <li class="menu-item nav-item" v-if="logged">
         <nuxt-link class="nav-link" :to="localePath('logout')">Logout</nuxt-link>
@@ -46,6 +46,10 @@ export default class MenuComponent extends Vue {
 
   public showCoins = true;
   public showBullet = true;
+
+  public get hasEnoughCards(): boolean {
+    return this.list.length >= 3;
+  }
 
   @Watch('coins')
   public onChangeCoins(newValue, oldValue): void {

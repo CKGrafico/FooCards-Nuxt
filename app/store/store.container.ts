@@ -17,6 +17,7 @@ export function containerBuilder(): Container {
 
     // Bind helpers
     container.bind<h.IRandomizerHelper>(h.IRandomizerHelperId).to(h.RandomizerHelper).inSingletonScope();
+    container.bind<h.ICloneHelper>(h.ICloneHelperId).to(h.CloneHelper).inSingletonScope();
     
     // Bind Store Helpers
     container.bind<m.avatarsModule.IAvatarsHelper>(m.avatarsModule.IAvatarsHelperId).to(m.avatarsModule.AvatarsHelper).inSingletonScope();
@@ -26,6 +27,7 @@ export function containerBuilder(): Container {
     container.bind<IStoreModule>(IStoreModuleId).to(m.settingsModule.SettingsStore).inSingletonScope();
     container.bind<IStoreModule>(IStoreModuleId).to(m.userModule.UsersStore).inSingletonScope();
     container.bind<IStoreModule>(IStoreModuleId).to(m.cardsModule.CardsStore).inSingletonScope();
+    container.bind<IStoreModule>(IStoreModuleId).to(m.gameModule.GameStore).inSingletonScope();
 
     return container;
 }

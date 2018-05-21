@@ -1,5 +1,57 @@
 @import '~/variables';
 
 .p-training {
-  
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  &-list {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+  }
+
+  &-item {
+    position: relative;
+  }
+
+  &-card {
+    opacity: .5;
+
+    &--bot {
+      >>> .card-description,
+      >>> .card-hp,
+      >>> .card-power {
+        opacity: 0;
+      }
+    }
+
+    &.is-selected {
+      opacity: 1;
+    }
+
+    &--bot.is-fighting {
+      >>> .card-description,
+      >>> .card-hp,
+      >>> .card-power {
+        opacity: 1;
+      }
+    }
+  }
+
+  &-hr {
+    border-bottom: 1px dashed rgba($color-foreground-dark, .2);
+    display: block;
+    height: 1px;
+    margin: 1rem;
+    width: 60%;
+  }
+
+  &-send {
+    display: block;
+    margin: 0 auto;
+    transform: translateY(-50%);
+  }
 }

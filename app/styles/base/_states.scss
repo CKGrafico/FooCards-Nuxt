@@ -7,8 +7,10 @@
   }
 
   &-disabled {
+    color: $color-foreground-bright !important;
+
     @include medias {
-      opacity: .5;
+      opacity: .8;
     }
   }
 }
