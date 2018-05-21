@@ -35,15 +35,16 @@ export default class ChoicerComponent extends Vue {
 
   &-item {
     cursor: pointer;
+    text-transform: capitalize;
 
     &.is-active {
-      color: $color-secondary;
+      color: $color-brand;
       font-weight: $font-weight-bold;
+      text-decoration: underline;
     }
 
     &:hover {
-      color: $color-secondary;
-      text-decoration: underline;
+      color: $color-brand-bright;
     }
   }
 }

@@ -113,7 +113,7 @@ body {
   }
   
   #mainNav .navbar-nav li.nav-item a.nav-link:hover {
-    color: $color-brand;
+    color: $color-secondary-brighter;
   }
   
   #mainNav .navbar-nav li.nav-item a.nav-link:active, #mainNav .navbar-nav li.nav-item a.nav-link:focus {
@@ -121,7 +121,7 @@ body {
   }
   
   #mainNav .navbar-nav li.nav-item a.nav-link.is-active {
-    color: $color-brand;
+    color: $color-secondary-brighter;
   }
   
   #mainNav .navbar-toggler {

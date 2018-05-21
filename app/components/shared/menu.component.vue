@@ -5,12 +5,16 @@
         <nuxt-link class="nav-link" :to="localePath('login')">Login</nuxt-link>
       </li>
       <li class="menu-item nav-item" v-if="logged">
-        <span class="menu-coins">{{coins}}💰</span>
+        <transition name="add">
+          <span class="menu-coins" v-if="showCoins">{{coins}}💰</span>
+        </transition>
       </li>
       <li class="menu-item nav-item" v-if="logged">
         <nuxt-link class="nav-link" :to="localePath('cards')">
           My Cards
-          <span class="menu-bullet">({{list.length}})</span>
+          <transition name="add">
+            <span class="menu-bullet" v-if="showBullet">({{list.length}})</span>
+          </transition>
         </nuxt-link>
       </li>
       <li class="menu-item nav-item" v-if="logged">
@@ -27,7 +31,7 @@
 </template>
 
 <script lang="ts">
-import { Vue } from 'vue-property-decorator';
+import { Vue, Watch } from 'vue-property-decorator';
 import Component, { namespace } from 'nuxt-class-component';
 import { userModule, cardsModule } from '~/store/modules';
 
@@ -39,6 +43,25 @@ export default class MenuComponent extends Vue {
   @UserModule.State logged;
   @UserModule.State coins;
   @CardsModule.State list;
+
+  public showCoins = true;
+  public showBullet = true;
+
+  @Watch('coins')
+  public onChangeCoins(newValue, oldValue): void {
+    if (newValue <= oldValue) {
+      return;
+    }
+
+    this.showCoins = false;
+    setTimeout(() => this.showCoins = true, 10);
+  }
+
+  @Watch('list')
+  public onChangeList(): void {
+    this.showBullet = false;
+    setTimeout(() => this.showBullet = true, 10);
+  }
 }
 </script>
 
@@ -62,11 +85,18 @@ export default class MenuComponent extends Vue {
   }
 
   &-coins {
-    color: $color-secondary-brighter;
+    background-color: rgba($color-secondary-darker, .65);
+    border-radius: 2px;
+    color: lighten($color-secondary-brighter, 20%);
+    font-size: $font-size-s;
+    padding: .2rem 0;
+    padding-left: .5rem;
+    padding-right: .15rem;
   }
 
   &-bullet {
     color: $color-secondary-brighter;
+    display: inline-block;
   }
 }
 </style>

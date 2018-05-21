@@ -30,7 +30,19 @@ export class CardsStore extends StoreModule<State> {
     }
 
     public state = (): State => ({
-        list: []
+        list: [
+            {
+                id: 1,
+                avatar: {
+                    color: '39b9bd',
+                    eyes: 'eyes7',
+                    mouth: 'mouth3',
+                    nose: 'nose3',
+                },
+                hp: 100,
+                power: 180
+            }
+        ]
     })
 
     public getters: GetterTree<State, RootState> = {};

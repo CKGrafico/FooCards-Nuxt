@@ -9,3 +9,13 @@
 .fade-leave-to {
   opacity: 0;
 }
+
+.add-enter-active,
+.add-leave-active {
+  transition: transform $animation-speed-fast;
+}
+
+.add-enter,
+.add-leave-to {
+  transform: scale(1.25);
+}

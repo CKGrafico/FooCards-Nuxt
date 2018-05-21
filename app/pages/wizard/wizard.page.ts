@@ -43,12 +43,7 @@ export default class WizardPage extends Vue {
     }
 
     public created(): void {
-        this.avatar = {
-            eyes: this.faceParts.eyes[this.randomizerHelper.generate(0, this.faceParts.eyes.length - 1)],
-            nose: this.faceParts.nose[this.randomizerHelper.generate(0, this.faceParts.nose.length - 1)],
-            mouth: this.faceParts.mouth[this.randomizerHelper.generate(0, this.faceParts.mouth.length - 1)],
-            color: this.randomizerHelper.color()
-        };
+        this.init();
     }
 
     public onClickSave(): void {
@@ -56,5 +51,15 @@ export default class WizardPage extends Vue {
             avatar: this.avatar
         });
         this.payForAvatar();
+        this.init();
+    }
+
+    private init(): void {
+        this.avatar = {
+            eyes: this.faceParts.eyes[this.randomizerHelper.generate(0, this.faceParts.eyes.length - 1)],
+            nose: this.faceParts.nose[this.randomizerHelper.generate(0, this.faceParts.nose.length - 1)],
+            mouth: this.faceParts.mouth[this.randomizerHelper.generate(0, this.faceParts.mouth.length - 1)],
+            color: this.randomizerHelper.color()
+        };
     }
 }

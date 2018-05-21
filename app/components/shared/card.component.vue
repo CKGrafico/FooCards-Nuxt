@@ -30,7 +30,7 @@ export default class CardComponent extends Vue {
 </script>
 
 <style compile lang="scss" scoped>
-@import "~/variables";
+@import '~/variables';
 
 .card {
   $size: 15rem;
@@ -52,6 +52,7 @@ export default class CardComponent extends Vue {
 
   &-image {
     $image-size: $size;
+
     height: $image-size;
     width: $image-size;
   }

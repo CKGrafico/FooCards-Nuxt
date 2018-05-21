@@ -11,7 +11,22 @@
     text-align: center;
   }
 
+  &-form {
+    $width: 40rem;
+
+    align-self: center;
+
+    @media (min-width: $width) {
+      width: $width;
+    }
+  }
+
   &-controls {
     padding-top: 2rem;
+  }
+
+  &-send {
+    display: block;
+    margin: 0 auto;
   }
 }

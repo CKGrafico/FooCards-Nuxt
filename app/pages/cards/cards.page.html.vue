@@ -1,6 +1,6 @@
 <template>
     <section class="p-cards">
-        <button @click="onClickBuy">Buy coins</button>
+        <button type="button" class="btn btn-primary mt-2 mr-2 float-right" @click="onClickBuy">(+) Coins</button>
         <ul class="p-cards-list">
             <li class="p-cards-item" v-for="(card, index) in list" :key="index">
                 <card v-model="list[index]"/>
