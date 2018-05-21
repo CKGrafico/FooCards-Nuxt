@@ -53,9 +53,7 @@ export default class WizardPage extends Vue {
 
     public onClickSave(): void {
         this.addCard({
-            avatar: this.avatar,
-            hp: 100,
-            power: 50
+            avatar: this.avatar
         });
         this.payForAvatar();
     }

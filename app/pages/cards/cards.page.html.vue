@@ -1,9 +1,10 @@
 <template>
     <section class="p-cards">
-        <ul>
-            <li v-for="(card, index) in list" :key="index">
-                <card v-model="card.avatar"/>
-                <span @click="onClickRemove(card)">X</span>
+        <button @click="onClickBuy">Buy coins</button>
+        <ul class="p-cards-list">
+            <li class="p-cards-item" v-for="(card, index) in list" :key="index">
+                <card v-model="list[index]"/>
+                <span class="p-cards-remove" @click="onClickRemove(card)">x</span>
             </li>
         </ul>
     </section>

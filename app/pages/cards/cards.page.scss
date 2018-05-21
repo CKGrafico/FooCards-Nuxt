@@ -1,5 +1,26 @@
 @import '~/variables';
 
 .p-cards {
-  
+  &-list {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+  }
+
+  &-item {
+    position: relative;
+  }
+
+  &-remove {
+    cursor: pointer;
+    opacity: .5;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: opacity $animation-speed-fast;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
 }

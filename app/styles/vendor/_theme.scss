@@ -44,11 +44,11 @@ body {
   }
   
   hr.star-dark {
-    border-color: $color-secondary-dark;
+    border-color: $color-secondary;
   }
   
   hr.star-dark:after {
-    color: $color-secondary-dark;
+    color: $color-secondary;
     background-color: white;
   }
   
@@ -113,7 +113,7 @@ body {
   }
   
   #mainNav .navbar-nav li.nav-item a.nav-link:hover {
-    color: $color-secondary-brighter;
+    color: $color-brand;
   }
   
   #mainNav .navbar-nav li.nav-item a.nav-link:active, #mainNav .navbar-nav li.nav-item a.nav-link:focus {
@@ -121,7 +121,7 @@ body {
   }
   
   #mainNav .navbar-nav li.nav-item a.nav-link.is-active {
-    color: $color-secondary-brighter;
+    color: $color-brand;
   }
   
   #mainNav .navbar-toggler {
@@ -312,7 +312,7 @@ body {
   .footer {
     padding-top: 5rem;
     padding-bottom: 5rem;
-    background-color: $color-secondary-dark;
+    background-color: $color-secondary;
     color: $color-foreground-brighter;
   }
   
@@ -337,7 +337,7 @@ body {
   }
   
   .bg-secondary {
-    background-color: $color-secondary-dark !important;
+    background-color: $color-secondary !important;
   }
   
   .text-primary {
@@ -345,7 +345,7 @@ body {
   }
   
   .text-secondary {
-    color: $color-secondary-dark !important;
+    color: $color-secondary !important;
   }
   
   .btn-primary {
@@ -359,8 +359,8 @@ body {
   }
   
   .btn-secondary {
-    background-color: $color-secondary-dark;
-    border-color: $color-secondary-dark;
+    background-color: $color-secondary;
+    border-color: $color-secondary;
   }
   
   .btn-secondary:hover, .btn-secondary:focus, .btn-secondary:active {

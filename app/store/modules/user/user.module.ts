@@ -43,6 +43,9 @@ export class UsersStore extends StoreModule<State> {
         },
         payForAvatar: ({ commit }): void => {
             commit(types.UPDATE_COINS, -25);
+        },
+        buyCoins: ({ commit }): void => {
+            commit(types.UPDATE_COINS, 50);
         }
     };
 

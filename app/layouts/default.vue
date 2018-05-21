@@ -13,7 +13,7 @@
 
     <div class="layout-copy copyright py-4 text-center text-white">
       <div class="container">
-        <small>Made with 🍕 by CKGrafico</small>
+        <small>Made with 🍕by CKGrafico</small>
       </div>
     </div>
   </section>
@@ -30,7 +30,6 @@
 
   &-content {
     flex: 1 1 auto;
-    height: 0;
   }
 
   &-menu,

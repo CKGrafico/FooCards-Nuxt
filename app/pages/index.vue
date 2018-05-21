@@ -1,21 +1,19 @@
 <template>
-  <section class="bg-primary text-white mb-0 p-5">
-    <div class="container">
+  <section>
+    <div class="container mb-0 p-5">
+      <h2 class="text-center text-primary text-uppercase">Welcome to Foo Cards</h2>
+    </div>
+
+    <div class="container bg-primary text-white p-5">
       <h2 class="text-center text-uppercase text-white">About</h2>
       <hr class="star-light mb-5">
       <div class="row">
         <div class="col-lg-4 ml-auto">
-          <p class="lead">Freelancer is a free bootstrap theme created by Start Bootstrap. The download includes the complete source files including HTML, CSS, and JavaScript as well as optional LESS stylesheets for easy customization.</p>
+          <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas placerat, nisi id lacinia ultrices, odio quam egestas purus, non hendrerit purus ipsum vitae justo. Nam blandit luctus rhoncus. Proin vestibulum venenatis sapien, et aliquet odio tempus bibendum.</p>
         </div>
         <div class="col-lg-4 mr-auto">
-          <p class="lead">Whether you're a student looking to showcase your work, a professional looking to attract clients, or a graphic artist looking to share your projects, this template is the perfect starting point!</p>
+          <p class="lead">Nullam in rutrum ligula. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut et euismod arcu. Nulla egestas nunc sit amet scelerisque lacinia. Suspendisse tempus ante sit amet molestie mattis. Vestibulum a varius justo. Mauris eget scelerisque metus.</p>
         </div>
-      </div>
-      <div class="text-center mt-4">
-        <a class="btn btn-xl btn-outline-light" href="#">
-          <i class="fa fa-download mr-2"></i>
-          Download Now!
-        </a>
       </div>
     </div>
   </section>

@@ -1,7 +1,8 @@
 import { ActionTree, MutationTree, GetterTree } from 'vuex';
-import { injectable } from 'inversify';
+import { injectable, inject } from 'inversify';
 import { RootState } from '~/store';
 import { StoreModule } from '~/core';
+import { IRandomizerHelper, IRandomizerHelperId } from '~/helpers';
 import { Avatar } from '~/store/modules/avatars';
 
 export const types = {
@@ -12,8 +13,8 @@ export const types = {
 export interface Card {
     id?: number;
     avatar: Avatar;
-    hp: number;
-    power: number;
+    hp?: number;
+    power?: number;
 }
 
 export interface State {
@@ -24,6 +25,10 @@ export interface State {
 export class CardsStore extends StoreModule<State> {
     public static id = 'cards';
 
+    constructor(@inject(IRandomizerHelperId) private randomizerHelper: IRandomizerHelper) {
+        super();
+    }
+
     public state = (): State => ({
         list: []
     })
@@ -31,6 +36,9 @@ export class CardsStore extends StoreModule<State> {
     public getters: GetterTree<State, RootState> = {};
     public actions: ActionTree<State, RootState> = {
         addCard: ({ commit }, card: Card): void => {
+            card.id = performance.now();
+            card.hp = this.randomizerHelper.generate(50, 200);
+            card.power = this.randomizerHelper.generate(100, 500);
             commit(types.ADD_CARD, card);
         },
         removeCard: ({ commit, state }, card: Card): void => {
@@ -41,7 +49,6 @@ export class CardsStore extends StoreModule<State> {
 
     public mutations: MutationTree<State> = {
         [types.ADD_CARD](state, card: Card): void {
-            card.id = performance.now();
             state.list.push(card);
         },
         [types.REMOVE_CARD](state, index: number): void {

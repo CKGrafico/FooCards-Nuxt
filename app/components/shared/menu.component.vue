@@ -5,11 +5,13 @@
         <nuxt-link class="nav-link" :to="localePath('login')">Login</nuxt-link>
       </li>
       <li class="menu-item nav-item" v-if="logged">
-        <span class="menu-coins">{{coins}}</span>
+        <span class="menu-coins">{{coins}}💰</span>
       </li>
       <li class="menu-item nav-item" v-if="logged">
-        <span class="menu-bullet">{{list.length}}</span>
-        <nuxt-link class="nav-link" :to="localePath('cards')">My Cards</nuxt-link>
+        <nuxt-link class="nav-link" :to="localePath('cards')">
+          My Cards
+          <span class="menu-bullet">({{list.length}})</span>
+        </nuxt-link>
       </li>
       <li class="menu-item nav-item" v-if="logged">
         <nuxt-link class="nav-link" :to="localePath('wizard')">Create</nuxt-link>
@@ -53,7 +55,18 @@ export default class MenuComponent extends Vue {
   }
 
   &-item {
+    align-items: center;
+    display: flex;
+    justify-content: center;
     margin-left: 1rem;
+  }
+
+  &-coins {
+    color: $color-secondary-brighter;
+  }
+
+  &-bullet {
+    color: $color-secondary-brighter;
   }
 }
 </style>
