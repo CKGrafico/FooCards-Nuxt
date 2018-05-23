@@ -32,6 +32,20 @@
       opacity: 1;
     }
 
+    &.is-fighting {
+      animation: remove-card 1.5s .5s;
+
+      @keyframes remove-card {
+        0% {
+          opacity: 1;
+        }
+
+        100% {
+          opacity: 0;
+        }
+      }
+    }
+
     &--bot.is-fighting {
       >>> .card-description,
       >>> .card-hp,

@@ -1,36 +1,42 @@
 import { Vue } from 'vue-property-decorator';
 import Component, { namespace } from 'nuxt-class-component';
 import { gameModule } from '~/store/modules';
-import { CardComponent } from '~/components/shared';
+import { CardComponent, LoadingComponent } from '~/components/shared';
 import { Card } from '~/store/modules/cards';
 
 const GameModule = namespace(gameModule.GameStore.id);
 
 @Component({
     components: {
-        CardComponent
+        CardComponent,
+        LoadingComponent
     },
     middleware: 'secured'
 })
 export default class TrainingPage extends Vue {
     @GameModule.Action initGame;
+    @GameModule.Action selectBotCard;
+    @GameModule.Action selectUserCard;
+    @GameModule.Action compareCards;
     @GameModule.State userCards;
     @GameModule.State botCards;
-
-    public activeBotCard: Card = null;
-    public activeUserCard: Card = null;
-    public isGameStarted = false;
+    @GameModule.State activeBotCard;
+    @GameModule.State activeUserCard;
+    @GameModule.State botScore;
+    @GameModule.State userScore;
+    @GameModule.State isFightingTurn;
+    @GameModule.State isFinished;
 
     public created(): void {
         this.initGame();
     }
 
     public onClickBotCard(card: Card): void {
-        this.activeBotCard = card;
+        this.selectBotCard(card);
     }
 
     public onClickUserCard(card: Card): void {
-        this.activeUserCard = card;
+        this.selectUserCard(card);
     }
 
     public isBotCardActive(card: Card): boolean {
@@ -45,12 +51,15 @@ export default class TrainingPage extends Vue {
         return !!this.activeBotCard && !!this.activeUserCard;
     }
 
-    public isFighting(card: Card): boolean {
-        return this.isBotCardActive(card) && this.isGameStarted;
+    public isFightingBot(card: Card): boolean {
+        return this.isBotCardActive(card) && this.isFightingTurn;
+    }
+
+    public isFightingUser(card: Card): boolean {
+        return this.isUserCardActive(card) && this.isFightingTurn;
     }
 
     public onClickFight(): void {
-        alert('in progress, alerts are the new console.log');
-        this.isGameStarted = true;
+        this.compareCards();
     }
 }
